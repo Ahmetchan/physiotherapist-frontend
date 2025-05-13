@@ -1,0 +1,606 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  color: #2563eb !important;
+  font-weight: 800;
+  letter-spacing: -1px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-logo {
+  width: 38px;
+  height: 38px;
+  margin-right: 0.5rem;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #222 !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-link:hover, .nav-link.active {
+  background: #f1f5fb;
+  color: #2563eb !important;
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 0 2rem 0;
+  gap: 2rem;
+}
+.hero-content {
+  flex: 1;
+  text-align: left;
+}
+.hero-title {
+  font-size: 2.7rem;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 1.2rem;
+}
+.hero-subtitle {
+  font-size: 1.3rem;
+  color: #444;
+  margin-bottom: 2rem;
+}
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+.hero-illustration {
+  width: 400px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.btn-primary {
+  background: #2563eb;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.7rem 2.2rem;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(37,99,235,0.07);
+}
+.btn-primary:hover {
+  background: #1746a2;
+}
+.btn-outline-primary {
+  background: #fff;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.7rem 2.2rem;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline-primary:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+.card, .modal-content {
+  border-radius: 20px;
+  box-shadow: 0 4px 24px 0 rgba(37,99,235,0.07), 0 1.5px 4px 0 rgba(0,0,0,0.03);
+  border: none;
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.card-title, h2, h1 {
+  font-weight: 800;
+  color: #222;
+}
+
+.form-control, .form-select {
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  background: #f9fafb;
+  font-size: 1.12rem;
+  padding: 0.85rem 1.1rem;
+  font-weight: 500;
+  box-shadow: none;
+  transition: border-color 0.2s;
+}
+.form-control:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 0.15rem rgba(37,99,235,0.08);
+}
+.input-group-text {
+  background: #f1f5fb;
+  border: 2px solid #e5e7eb;
+  border-right: none;
+  border-radius: 12px 0 0 12px;
+  font-size: 1.2rem;
+  color: #2563eb;
+  font-weight: 700;
+  padding: 0.85rem 1.1rem;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+.input-group > .form-control {
+  border-radius: 0 12px 12px 0;
+  border-left: none;
+}
+
+.input-group-text.clickable {
+  pointer-events: auto;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.input-group-text.clickable:hover {
+  background: #e6edfa;
+}
+
+.alert {
+  border-radius: 10px;
+  font-size: 1.08rem;
+}
+
+.rbc-calendar {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px 0 rgba(37,99,235,0.07), 0 1.5px 4px 0 rgba(0,0,0,0.03);
+  padding: 1.5rem;
+}
+
+.modal-content {
+  border-radius: 20px;
+}
+
+/* Responsive hero ve navbar */
+@media (max-width: 992px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .hero-content {
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .navbar, .nav {
+    padding: 0.5rem 1rem;
+  }
+  .container {
+    padding: 0 0.5rem;
+  }
+  .hero-illustration {
+    width: 220px;
+  }
+  .card, .modal-content {
+    padding: 1.2rem 0.5rem;
+  }
+}
+
+/* Modern, drchrono.com tarzı arayüz */
+body {
+  background: #f8fafc;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: #222;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background: #2563eb;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  box-shadow: 2px 0 12px 0 rgba(37,99,235,0.07);
+}
+
+.sidebar-logo {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  letter-spacing: -1px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.sidebar-menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.sidebar-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.sidebar-link:hover, .sidebar-link.active {
+  background: rgba(255,255,255,0.13);
+  color: #fff;
+}
+
+.main-content {
+  margin-left: 250px;
+  flex: 1;
+  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  min-height: 100vh;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 70px;
+    padding: 1.2rem 0.5rem;
+    align-items: center;
+  }
+  .sidebar-logo {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+  .sidebar-menu {
+    gap: 0.5rem;
+  }
+  .sidebar-link {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.5rem;
+    justify-content: center;
+  }
+  .main-content {
+    margin-left: 70px;
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    position: fixed;
+    left: -250px;
+    width: 220px;
+    transition: left 0.2s;
+    z-index: 2000;
+  }
+  .sidebar.open {
+    left: 0;
+  }
+  .main-content {
+    margin-left: 0;
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* Hamburger menü butonu */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 1.2rem;
+  left: 1.2rem;
+  z-index: 2100;
+  background: #2563eb;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 8px;
+  padding: 0.3rem 0.7rem;
+  box-shadow: 0 2px 8px 0 rgba(37,99,235,0.07);
+}
+@media (max-width: 600px) {
+  .hamburger {
+    display: block;
+  }
+}
+
+.navbar, .nav {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  padding: 0.75rem 2rem;
+}
+
+.navbar-brand, .nav-link, .nav-tabs .nav-link {
+  color: #222 !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #2563eb !important;
+  letter-spacing: -1px;
+}
+
+.nav-tabs .nav-link.active {
+  color: #2563eb !important;
+  border-bottom: 2px solid #2563eb;
+  background: #f1f5fb;
+}
+
+.btn-primary {
+  background: #2563eb;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.btn-primary:hover {
+  background: #1746a2;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color, #007bff);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.alert {
+  border-radius: 0.25rem;
+}
+
+/* Takvim stilleri */
+.rbc-calendar {
+  min-height: 600px;
+}
+
+.rbc-toolbar button {
+  color: var(--primary-color, #007bff);
+}
+
+.rbc-toolbar button:active,
+.rbc-toolbar button.rbc-active {
+  background-color: var(--primary-color, #007bff);
+  color: white;
+}
+
+.rbc-event {
+  background-color: var(--primary-color, #007bff);
+}
+
+/* Mobil uyumluluk */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .card {
+    margin-bottom: 1rem;
+  }
+  
+  .rbc-calendar {
+    min-height: 400px;
+  }
+}
+
+/* Örnek doktor illüstrasyonu için görsel alanı */
+/*
+<img class="hero-illustration" src="https://undraw.co/api/illustrations/undraw_doctor_kw5l.svg" alt="Doktor illüstrasyonu" />
+*/
+
+.about-content img {
+  display: inline-block;
+  max-width: 45%;
+  height: auto;
+  margin: 0 1% 16px 1%;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .about-content img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto 16px auto;
+  }
+}
+
+/* Randevu formu spacing ve hizalama */
+.appointment-form-label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 1.08rem;
+  display: block;
+}
+.appointment-form-group {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+/* Sağdaki özet kutusu için text-wrap engelle ve genişlik artır */
+.summary-card {
+  min-width: 340px;
+  max-width: 420px;
+  margin: 0 auto;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.summary-card .card-body > div {
+  margin-bottom: 7px;
+}
+
+@media (max-width: 992px) {
+  .summary-card {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-x: visible;
+  }
+}
+
+/* Sosyal medya ikon kutusu */
+.social-icons-fixed {
+  position: fixed;
+  top: 18px;
+  left: 22px;
+  z-index: 1200;
+  display: flex;
+  gap: 14px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px 0 rgba(37,99,235,0.09);
+  padding: 7px 14px;
+  align-items: center;
+}
+.social-icons-fixed a {
+  color: #25d366;
+  font-size: 1.7rem;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+.social-icons-fixed a.instagram {
+  color: #e1306c;
+}
+.social-icons-fixed a:hover {
+  opacity: 0.8;
+}
+@media (max-width: 600px) {
+  .social-icons-fixed {
+    top: 10px;
+    left: 8px;
+    padding: 5px 8px;
+    gap: 10px;
+  }
+  .social-icons-fixed a {
+    font-size: 1.3rem;
+  }
+}
+
+/* Sabit, oval ve gölgeli sosyal ikon kutusu (sağ üst) */
+.social-icons-fixed-custom {
+  position: fixed;
+  top: 22px;
+  right: 38px;
+  z-index: 1200;
+  display: flex;
+  gap: 18px;
+  background: #fff;
+  border-radius: 32px;
+  box-shadow: 0 4px 18px 0 rgba(37,99,235,0.13);
+  padding: 10px 22px;
+  align-items: center;
+  border: 1.5px solid #e6edfa;
+}
+.social-icons-fixed-custom a {
+  color: #25d366;
+  font-size: 2.1rem;
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+}
+.social-icons-fixed-custom a.instagram {
+  color: #e1306c;
+}
+.social-icons-fixed-custom a:hover {
+  opacity: 0.85;
+  transform: scale(1.12);
+}
+@media (max-width: 600px) {
+  .social-icons-fixed-custom {
+    top: 10px;
+    right: 8px;
+    left: auto;
+    padding: 6px 10px;
+    gap: 10px;
+    border-radius: 22px;
+  }
+  .social-icons-fixed-custom a {
+    font-size: 1.4rem;
+  }
+}
