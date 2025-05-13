@@ -5,7 +5,7 @@ import App from './App.jsx'
 import axios from 'axios'
 
 // API URL'ini ayarla
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'https://physiotherapist-backend.onrender.com'
+axios.defaults.baseURL = 'https://physiotherapist-backend.onrender.com'
 axios.defaults.withCredentials = true
 axios.defaults.headers.common['Content-Type'] = 'application/json'
 
