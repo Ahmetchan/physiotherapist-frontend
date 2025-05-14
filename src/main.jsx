@@ -4,45 +4,38 @@ import './index.css'
 import App from './App.jsx'
 import axios from 'axios'
 
-// API URL'ini ayarla
-axios.defaults.baseURL = 'https://physiotherapist-backend.onrender.com'
-axios.defaults.withCredentials = false // CORS için önemli
+// API URL
+axios.defaults.baseURL = '' // Kök URL kullan, proxy yönlendirmesi için
+axios.defaults.withCredentials = false
 
-// Başlıklar için CORS sorununun çözümü
+// Default headers
 axios.defaults.headers.common = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
-// CORS için ek header'lar
-axios.interceptors.request.use(function (config) {
-  config.headers['Origin'] = window.location.origin;
-  config.headers['X-Requested-With'] = 'XMLHttpRequest';
-  // Cache busting için
-  if (config.method === 'get') {
-    config.params = config.params || {};
-    config.params['_'] = new Date().getTime();
-  }
-  console.log('Request:', config.method.toUpperCase(), config.url);
-  return config;
-}, function (error) {
-  console.error('Request Error:', error);
-  return Promise.reject(error);
-});
+// Log requests ve responses
+axios.interceptors.request.use(
+  (config) => {
+    // Cache busting için timestamp ekle
+    if (config.method === 'get') {
+      config.params = { ...config.params || {}, timestamp: Date.now() }
+    }
+    return config
+  },
+  (error) => Promise.reject(error)
+)
 
 axios.interceptors.response.use(
-  (response) => {
-    console.log('Response:', response.status, response.config.url);
-    return response;
-  },
+  (response) => response,
   (error) => {
-    console.error('Response Error:', error.response?.status, error.response?.data || error.message);
-    return Promise.reject(error);
+    console.error('API Hatası:', error.response?.status, error.response?.data?.message || error.message)
+    return Promise.reject(error)
   }
-);
+)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 )

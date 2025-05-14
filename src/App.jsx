@@ -58,31 +58,18 @@ function App() {
   useEffect(() => {
     const fetchSettings = async () => {
       try {
-        console.log('Ayarlar getiriliyor...');
-        
-        // Cache busting için zaman damgası ekleyin
-        const timestamp = new Date().getTime();
-        // Mutlak URL kullanarak CORS sorunlarını önleyin
-        const response = await axios.get(`/api/admin/settings?t=${timestamp}`, {
-          headers: {
-            'Cache-Control': 'no-cache',
-            'Pragma': 'no-cache',
-            'Expires': '0'
-          }
-        });
-        
-        console.log('Ayarlar alındı:', response.data);
+        // Cache busting için
+        const response = await axios.get(`/api/admin/settings?t=${Date.now()}`);
         setSettings(response.data);
       } catch (error) {
-        console.error('Ayarlar getirilirken hata:', error);
-        
-        // Fallback değerler atayın
+        console.error('Ayarlar alınamadı:', error);
+        // Fallback değerler
         setSettings({
           siteTitle: 'Fizyoterapist Randevu Sistemi',
-          primaryColor: '#007bff',
+          primaryColor: '#007bff', 
           secondaryColor: '#6c757d',
           fontFamily: 'Arial, sans-serif',
-          aboutContent: '<p>Hakkımda içeriği burada görüntülenecek</p>',
+          aboutContent: '<p>Hakkımda sayfası içeriği burada görüntülenecek.</p>',
           backgroundImage: ''
         });
       }
