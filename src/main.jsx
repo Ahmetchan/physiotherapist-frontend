@@ -5,7 +5,7 @@ import App from './App.jsx'
 import axios from 'axios'
 
 // API URL
-axios.defaults.baseURL = '' // Kök URL kullan, proxy yönlendirmesi için
+axios.defaults.baseURL = '/api' // Vercel rewrites kullanarak api yönlendirmesi
 axios.defaults.withCredentials = false
 
 // Default headers
@@ -21,6 +21,7 @@ axios.interceptors.request.use(
     if (config.method === 'get') {
       config.params = { ...config.params || {}, timestamp: Date.now() }
     }
+    console.log('API İsteği:', config.url)
     return config
   },
   (error) => Promise.reject(error)
