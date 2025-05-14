@@ -58,12 +58,24 @@ function App() {
   useEffect(() => {
     const fetchSettings = async () => {
       try {
+        console.log('Ayarlar getiriliyor...');
         const response = await axios.get('/api/admin/settings');
+        console.log('Ayarlar alındı:', response.data);
         setSettings(response.data);
-      } catch {
-        // Hata yönetimi
+      } catch (error) {
+        console.error('Ayarlar getirilirken hata:', error.response?.status, error.response?.data || error.message);
+        // Fallback değerler atayın
+        setSettings({
+          siteTitle: 'Fizyoterapist Randevu Sistemi',
+          primaryColor: '#007bff',
+          secondaryColor: '#6c757d',
+          fontFamily: 'Arial, sans-serif',
+          aboutContent: '<p>Hakkımda içeriği burada görüntülenecek</p>',
+          backgroundImage: ''
+        });
       }
     };
+
     fetchSettings();
   }, []);
 
