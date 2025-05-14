@@ -59,11 +59,23 @@ function App() {
     const fetchSettings = async () => {
       try {
         console.log('Ayarlar getiriliyor...');
-        const response = await axios.get('/api/admin/settings');
+        
+        // Cache busting için zaman damgası ekleyin
+        const timestamp = new Date().getTime();
+        // Mutlak URL kullanarak CORS sorunlarını önleyin
+        const response = await axios.get(`/api/admin/settings?t=${timestamp}`, {
+          headers: {
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache',
+            'Expires': '0'
+          }
+        });
+        
         console.log('Ayarlar alındı:', response.data);
         setSettings(response.data);
       } catch (error) {
-        console.error('Ayarlar getirilirken hata:', error.response?.status, error.response?.data || error.message);
+        console.error('Ayarlar getirilirken hata:', error);
+        
         // Fallback değerler atayın
         setSettings({
           siteTitle: 'Fizyoterapist Randevu Sistemi',

@@ -6,20 +6,29 @@ import axios from 'axios'
 
 // API URL'ini ayarla
 axios.defaults.baseURL = 'https://physiotherapist-backend.onrender.com'
-axios.defaults.withCredentials = true
-axios.defaults.headers.common['Content-Type'] = 'application/json'
+axios.defaults.withCredentials = false // CORS için önemli
 
-// Axios interceptors
-axios.interceptors.request.use(
-  (config) => {
-    console.log('Request:', config.method.toUpperCase(), config.url);
-    return config;
-  },
-  (error) => {
-    console.error('Request Error:', error);
-    return Promise.reject(error);
+// Başlıklar için CORS sorununun çözümü
+axios.defaults.headers.common = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+// CORS için ek header'lar
+axios.interceptors.request.use(function (config) {
+  config.headers['Origin'] = window.location.origin;
+  config.headers['X-Requested-With'] = 'XMLHttpRequest';
+  // Cache busting için
+  if (config.method === 'get') {
+    config.params = config.params || {};
+    config.params['_'] = new Date().getTime();
   }
-);
+  console.log('Request:', config.method.toUpperCase(), config.url);
+  return config;
+}, function (error) {
+  console.error('Request Error:', error);
+  return Promise.reject(error);
+});
 
 axios.interceptors.response.use(
   (response) => {
