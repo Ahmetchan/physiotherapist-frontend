@@ -4,8 +4,8 @@ import './index.css'
 import App from './App.jsx'
 import axios from 'axios'
 
-// API URL
-axios.defaults.baseURL = '/api' // Vercel rewrites kullanarak api yönlendirmesi
+// API URL - doğrudan backend'e yönlendir
+axios.defaults.baseURL = 'https://physiotherapist-backend.onrender.com/api'
 axios.defaults.withCredentials = false
 
 // Default headers
