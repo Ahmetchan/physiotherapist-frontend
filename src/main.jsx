@@ -14,18 +14,24 @@ axios.defaults.headers.common = {
   'Accept': 'application/json'
 }
 
-// Log requests ve responses
-axios.interceptors.request.use(
-  (config) => {
-    // Cache busting için timestamp ekle
-    if (config.method === 'get') {
-      config.params = { ...config.params || {}, timestamp: Date.now() }
-    }
-    console.log('API İsteği:', config.url)
-    return config
-  },
-  (error) => Promise.reject(error)
-)
+// Axios interceptor CORS hatalarını önlemek için
+axios.interceptors.request.use(function (config) {
+  // Cache busting için timestamp ekle
+  if (config.method === 'get') {
+    config.params = { ...config.params || {}, timestamp: Date.now() }
+  }
+  
+  // Hatalı URL düzeltme
+  // /api/api/... yerine /api/... olarak düzelt
+  if (config.url && config.url.startsWith('/api/')) {
+    config.url = config.url.replace('/api/', '/')
+  }
+  
+  console.log('API İsteği:', config.url)
+  return config
+}, function (error) {
+  return Promise.reject(error)
+})
 
 axios.interceptors.response.use(
   (response) => response,
